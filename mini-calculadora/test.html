@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Testes JS</title>
+</head>
+<body>
+
+<button onclick="iniciarCalculo('+')">+</button>
+<button onclick="iniciarCalculo('-')">-</button>
+<button onclick="iniciarCalculo('*')">*</button>
+<button onclick="iniciarCalculo('/')">/</button>
+
+<div id="output"></div> 
+    <script>
+        var n1 = prompt("digite um numero:");
+        n1 = parseInt(n1);
+        
+        escreve(n1);
+
+        function iniciarCalculo(simbolo) {
+            var n1 = document.querySelector("#output").textContent;
+            n1 = parseFloat(n1);
+
+            var n2 = prompt("digite outro numero:");
+            n2 = parseFloat(n2);
+
+            var msg = calcular(simbolo, n1, n2);
+
+            escreve(msg);
+        }
+
+        function escreve(mensagem){
+            var output = document.querySelector('#output');
+            output.innerHTML = mensagem;
+        }
+
+        function calcular(simbolo, n1, n2){
+            var numeroCalculado = null;
+                switch(simbolo){
+                    case '+':
+                    numeroCalculado = n1 += n2;
+                    break;
+                    case '-':
+                    numeroCalculado = n1 -= n2;
+                    break;
+                    case '*':
+                    numeroCalculado = n1 *= n2;
+                    break;
+                    case '/':
+                    numeroCalculado = n1 /= n2;
+                };
+                   return numeroCalculado;
+        } 
+        
+    </script>
+</body>
+</html>
+
